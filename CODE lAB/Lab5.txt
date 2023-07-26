@@ -1,0 +1,114 @@
+ข้อ1
+
+
+
+package Selection;
+
+import java.util.Arrays;
+
+class sortt {
+  void selectionSort(int array[]) {
+    int size = array.length;
+
+    for (int step = 0; step < size - 1; step++) {
+      int min_idx = step;
+
+      for (int i = step + 1; i < size; i++) {
+
+       
+        if (array[i] > array[min_idx]) {
+          min_idx = i;
+        }
+      }
+
+      
+      int temp = array[step];
+      array[step] = array[min_idx];
+      array[min_idx] = temp;
+    }
+  }
+
+  
+  public static void main(String args[]) {
+    int[] data = { 120, 60, 20, 80, 79, 30, 45 };
+    System.out.printf("Unsorted Array:%s \n",Arrays.toString(data));
+    sortt ss = new sortt();
+    ss.selectionSort(data);
+    System.out.printf("Sorted Array in Ascending Order: %s ",Arrays.toString(data));
+    
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+ข้อ 2
+
+package Selection;
+
+import java.util.Scanner;
+
+public class sort
+{
+   public static void main(String[] args)
+   {
+      int tot=0, i, j, count, small, index=0, x;
+      Scanner scan = new Scanner(System.in);
+      
+      System.out.print("Input number of integers to sort: ");
+      tot = scan.nextInt();
+      int[] arr = new int[tot];
+      
+      System.out.printf("Enter %d intergers \n" , tot);
+      
+      for(i=0; i<tot; i++) {
+    	  System.out.printf("Enter %d: " , i+1);
+         arr[i] = scan.nextInt();
+      }
+      for(i=0; i<(tot-1); i++)
+      {
+         count=0;
+         small = arr[i];
+         for(j=(i+1); j<tot; j++)
+         {
+            if(small<arr[j])
+            {
+               small = arr[j];
+               count++;
+               index = j;
+            }
+         }
+         if(count!=0)
+         {
+            x = arr[i];
+            arr[i] = small;
+            arr[index] = x;
+         }
+      }
+      
+      System.out.printf("Sorted list of number: \n",+arr[i]);
+      for(i=0; i<tot; i++)
+         System.out.printf("Data %d : %s \n",i+1 ,arr[i]);
+      
+   }
+}
+
+
+
+
+
+
+
+
+
+
+
+

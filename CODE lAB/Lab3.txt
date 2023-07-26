@@ -1,0 +1,75 @@
+import java.util.Scanner;
+
+public class Lab3ForStd {
+	public static void main(String[] args)
+	{  StackA a = new StackA(5);
+		int i;
+		String s;
+		Scanner input = new Scanner(System.in);
+			 
+		for(i = 0;i < 5;i++) { //for loop = Stack Size	
+			System.out.printf("Push Data %d : " , i+1);
+	        s = input.nextLine();
+	        a.push(s);
+		}
+		System.out.println("--------------------------");
+		if(a.isFull()) { //check if not empty
+			for(i = 0;i < 5;i++) { //for loop = Stack Size
+				System.out.printf("\nPop Data %d : %s" , i+1 , a.pop() );
+			}
+		}
+		System.out.println(" ");
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+package Stacks;
+import java.util.Scanner;
+public class StackA {
+	 Scanner input = new Scanner(System.in);
+		public int maxSize = 5; // size of stack array
+		public String[] stackArray;
+		public int top; // top of stack
+	
+		//--------------------------------------------------------------
+		public StackA(int s) // constructor
+		{
+			maxSize = s; // set array size
+			stackArray = new String[maxSize]; // create array
+			top = -1; // no items yet
+		}
+		//--------------------------------------------------------------
+		public void push(String j) // put item on top of stack
+		{ 
+			stackArray[++top] = j;
+
+		 }
+		
+		//--------------------------------------------------------------
+		public String pop() // take item from top of stack
+		{
+			return(stackArray[top--]);
+		   }
+			
+// access item, decrement top (pop data)
+		
+		//--------------------------------------------------------------
+		public boolean isEmpty() // true if stack is empty
+		{
+			return ( top == -1 );// check your stack (empty)
+		}
+		//--------------------------------------------------------------
+		public boolean isFull() // true if stack is full
+		{
+			return ( top >= maxSize-1 );// check your stack (full)
+		}
+}

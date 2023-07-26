@@ -1,0 +1,86 @@
+ข้อ 1 
+
+
+
+package Lab6;
+import java.util.Scanner;
+
+public class seq {
+	    public static int search(int arr[], int x)
+	    {
+	        int N = arr.length;
+	        for (int i = 0; i < N; i++) {
+	            if (arr[i] == x)
+	                return i;
+	        }
+	        return -1;
+	    }
+
+	    
+	    public static void main(String args[])
+	    {
+	        Scanner sc = new Scanner(System.in);
+	        System.out.print("ID: ");
+	        int x = sc.nextInt();
+
+	        int arr[] = {10001, 10022, 10060, 11255, 15022, 20001, 21002, 23003, 25566, 30078, 40000, 50012, 66006};
+
+	        
+	        int result = search(arr, x);
+	        if (result == -1)
+	            System.out.print("Not Found!");
+	        else
+	            System.out.printf("Found at A [%d] ", result);
+
+	        sc.close();
+	    }
+	}
+
+
+
+
+
+
+ข้อ 2
+
+
+
+package Lab6;
+import java.util.Scanner;
+public class bs {
+	
+	    public static void main(String[] args) {
+	        int[] numbers = {00000, 11111, 22222, 33333, 44444, 55555, 66666, 77777, 88888, 99999};
+	        Scanner sc = new Scanner(System.in);
+	        System.out.print("Enter search ID: ");
+	        int searchID = sc.nextInt();
+
+	        int first = 0;
+	        int last = numbers.length - 1;
+	        int mid = 0;
+	        boolean found = false;
+
+	        while (first <= last) {
+	            mid = (first + last) / 2;
+	            System.out.println("first: " + first + " last: " + last);
+	            if (numbers[mid] == searchID) {
+	                found = true;
+	                break;
+	            } else if (numbers[mid] < searchID) {
+	                first = mid + 1;
+	            } else {
+	                last = mid - 1;
+	            }
+	        }
+
+	        if (found) {
+	            System.out.println("Found at Number[" + mid + "]: " + searchID);
+	        } else {
+	            System.out.println("Not Found!");
+	        }
+	    }
+	}
+
+
+
+

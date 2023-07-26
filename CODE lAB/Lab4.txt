@@ -1,0 +1,45 @@
+package qqq;
+
+
+import java.util.Scanner;
+
+public class Lab4ForStd {
+	public static int maxsize=5;
+	public static int[] number = new int[maxsize];
+	
+	public static void main (String[] args) {
+		// Declare variables
+		int i;
+		Scanner input = new Scanner(System.in);
+			for( i=0; i<maxsize; i++) {
+				int num=0;
+			while(num<=0) {
+				System.out.printf("Enquene Data %d : ",i+1,number[i]);
+			num = input.nextInt();
+			// input
+			enqueue(i, num);
+			}
+			}
+			if(number.length == maxsize) {
+				System.out.printf("\nQuene is full.\n");
+		}
+		dequeue();
+		}
+	
+	public static void dequeue() {
+		// dequeue
+		int i = 0;
+		for(i=0;i<number.length;i++) {
+			System.out.printf("\nDequene Data %s : %d",i+1,number[i]);
+			number[i]=0;
+		}
+		if(number[0]==0)
+			System.out.println("");
+		System.out.println("\nQuene is empty.\n");
+	}
+		
+	public static void enqueue(int i, int num) {
+		number[i]=num;
+	}
+
+}

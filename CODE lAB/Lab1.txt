@@ -1,0 +1,78 @@
+package lab1;
+
+	class SimpleArray {
+	    private long[] a;
+
+	    public SimpleArray(int size) {
+	        a = new long[size];
+	    }
+
+	    public void setElem(int index, long value) {
+	        a[index] = value;
+	    }
+
+	    public long getElem(int index) {
+	        return a[index];
+	    }
+
+	    public int findMax(int nElems) {
+	        if (nElems <= 0) {
+	            throw new IllegalArgumentException("Invalid number of elements");
+	        }
+
+	        int maxIndex = 0;
+	        for (int i = 1; i < nElems; i++) {
+	            if (a[i] > a[maxIndex]) {
+	                maxIndex = i;
+	            }
+	        }
+	        return maxIndex;
+	    }
+
+	    public void removeMax(int nElems) {
+	        if (nElems <= 0) {
+	            throw new IllegalArgumentException("Invalid number of elements");
+	        }
+
+	        int maxIndex = findMax(nElems);
+
+	        System.out.println("Index Number: " + maxIndex);
+	        System.out.println(a[maxIndex] + " has been removed.");
+
+	        for (int i = maxIndex; i < nElems - 1; i++) {
+	            a[i] = a[i+1];
+	        }
+	     nElems--;
+	    }
+	    public static void main(String[] args) {
+	        SimpleArray arr = new SimpleArray(100);
+	        int nElems = 0;
+
+	        arr.setElem(0, 77);
+	        arr.setElem(1, 99);
+	        arr.setElem(2, 44);
+	        arr.setElem(3, 55);
+	        arr.setElem(4, 22);
+	        arr.setElem(5, 88);
+	        arr.setElem(6, 11);
+	        arr.setElem(7, 0);
+	        arr.setElem(8, 66);
+	        arr.setElem(9, 33);
+	        nElems = 10;
+
+	        for (int j = 0; j < nElems; j++) {
+	            System.out.print(arr.getElem(j) + " ");
+	        }
+	        System.out.println("");
+	        
+	        arr.removeMax(nElems);
+	        nElems--;
+
+	        for (int j = 0; j < nElems; j++) {
+	            System.out.print(arr.getElem(j) + " ");
+	        }
+	        System.out.println("");
+	    }
+
+	}
+

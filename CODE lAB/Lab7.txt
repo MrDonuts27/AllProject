@@ -1,0 +1,78 @@
+package Lab71;
+
+import java.util.Scanner;
+
+public class BST_class {
+	    class Node { 
+	        int key; 
+	        Node left, right; 
+	   
+	        public Node(int data){ 
+	            key = data; 
+	            left = right = null; 
+	        } 
+	    }
+
+	    Node root; 
+	  
+	    BST_class(){ 
+	        root = null; 
+	    } 
+	    
+	    void insert(int key)  { 
+	        root = insert_Recursive(root, key); 
+	    } 
+	    Node insert_Recursive(Node root, int key) { 
+	        if (root == null) { 
+	            root = new Node(key); 
+	            return root; 
+	        } 
+	        if (key < root.key) 
+	            root.left = insert_Recursive(root.left, key); 
+	        else if (key > root.key) 
+	            root.right = insert_Recursive(root.right, key); 
+	        return root; 
+	    } 
+	   
+	    void inorder() {
+	    	 inorderRecursive(root);
+	    	 }
+	    	 
+	    	 void inorderRecursive(Node root) {
+	    	 
+	    	 if (root != null) {
+	    	 inorderRecursive(root.left);
+	    	 System.out.printf(root.key + " " );
+	    	 inorderRecursive(root.right);
+	    	 }
+	    	 }
+	    	 
+	    	 void postorder() {
+	    	 postorderRecursive(root);
+	    	 }
+	    	 
+	    	 void postorderRecursive(Node root) {
+	    	 if (root != null) {
+	    	 postorderRecursive(root.left);
+	    	 postorderRecursive(root.right);
+	    	 System.out.print(root.key + " ");
+	    	 }
+	    	 }
+	    	 public static void main(String[] args) {
+	    		 BST_class bst = new BST_class();
+	    		 String msg = "";
+	    		 int num=0, i = 0;
+	    		 Scanner input = new Scanner(System.in);
+	    		 for(i=0; i<10; i++) {
+	    		 msg = input.nextLine();
+	    		 num = Integer.parseInt(msg);
+	    		 bst.insert(num);
+	    		 }
+	    		 System.out.printf("In order ...\n" );
+	    		 bst.inorder();
+	    		 System.out.printf("\nPost order ... \n" );
+	    		 bst.postorder();
+	    		 }
+	    		}
+
+	   

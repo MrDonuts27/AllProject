@@ -1,0 +1,53 @@
+package Lab10;
+import java.util.*;
+
+public class Labkrub {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+     
+        System.out.print("How many vertices? ");
+        int numVertices = scanner.nextInt();
+
+        
+        Map<Integer, List<Integer>> adjList = new HashMap<>();
+        for (int i = 0; i < numVertices; i++) {
+            List<Integer> adjVertices = new ArrayList<>();
+            System.out.print("Adjacent of vertex " + i + ": \n");
+            int adjVertex = scanner.nextInt();
+            while (adjVertex != -1) {
+                adjVertices.add(adjVertex);
+                adjVertex = scanner.nextInt();
+            }
+            adjList.put(i, adjVertices);
+        }
+
+        
+        int[][] adjMatrix = new int[numVertices][numVertices];
+
+        
+        for (int i = 0; i < numVertices; i++) {
+            List<Integer> adjVertices = adjList.get(i);
+            for (int j : adjVertices) {
+                adjMatrix[i][j] = 1;
+            }
+        }
+
+        
+        System.out.println("Adjacency Matrix:");
+        System.out.print("   | ");
+        for (int i = 0; i < numVertices; i++) {
+            System.out.print(i + " ");
+        }
+        System.out.println("\n---- Happy Valentine's Day ----");
+        for (int i = 0; i < numVertices; i++) {
+            System.out.print(" " + i + " | ");
+            for (int j = 0; j < numVertices; j++) {
+                System.out.print(adjMatrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+        System.out.println("---- Happy Valentine's Day ----");
+    }
+}
+

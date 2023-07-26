@@ -1,0 +1,45 @@
+package lab8;
+
+import java.util.Scanner;
+
+public class Hashing {
+	 private int[] hash_table = new int[10];
+
+	    Hashing(){ 
+		for(int j=0; j<10; j++) 
+		    hash_table[j] = -1;
+	    } 
+
+	    public void display() {
+	    	  System.out.print("Table: ");
+	    	    for (int i = 0; i < hash_table.length; i++) {
+	    	        if (hash_table[i] == -1) {
+	    	            System.out.print("* ");
+	    	        } else {
+	    	            System.out.print(hash_table[i] + " ");
+	    	        }
+	    	    }
+	    	    System.out.println();
+	    	}
+	   public void insert(int key)  { 
+		   int index = key % hash_table.length;
+		    while (hash_table[index] != -1) {
+		        index = (index + 1) % hash_table.length;
+		    }
+		    hash_table[index] = key;
+		}
+	   
+	   public static void main(String[] args) { 
+	        Hashing hashtab = new Hashing(); 
+	        String msg = "";
+	        int num=0,  i = 0;
+	        Scanner input = new Scanner(System.in);
+
+	        for(i=0; i<7; i++) {
+	            msg = input.nextLine();
+	            num = Integer.parseInt(msg);
+	            hashtab.insert(num);
+	        }
+	        hashtab.display(); 
+	    }
+	}
