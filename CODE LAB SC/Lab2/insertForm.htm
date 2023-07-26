@@ -1,0 +1,63 @@
+   <!DOCTYPE html>
+<html>
+<head>
+    <title>Insert Form</title>
+</head>
+<body>
+    <Table align="center">
+        <TR>
+			<TD><img src="./avatar/avatar1.jpg" width="45" onclick="c('./avatar/avatar1.jpg')"></TD>
+			<TD><img src="./avatar/avatar2.jpg" width="45" onclick="c('./avatar/avatar2.jpg')"></TD>>
+			<TD><img src="./avatar/avatar3.jpg" width="45" onclick="c('./avatar/avatar3.jpg')"></TD>>
+			<TD><img src="./avatar/avatar4.jpg" width="45" onclick="c('./avatar/avatar4.jpg')"></TR>
+			<TD><img src="./avatar/avatar5.jpg" width="45" onclick="c('./avatar/avatar5.jpg')"></TD>
+			<TD><img src="./avatar/avatar6.jpg" width="45" onclick="c('./avatar/avatar6.jpg')"></TD>
+			
+        </TR>
+    </Table>
+    <Table align="center">
+        <form id="myForm" action="insert.php" method="post" autocomplete="on" enctype="multipart/form-data">
+            <TR>
+                <TD><img id="avatar-big"  src="./avatar/avatar1.jpg">
+					<TD><input type="hidden" id="hid" name="avatar" value="./avatar/avatar1.jpg"></TD>
+                
+            </TR>
+            <TR>
+                <TD>Firstname:</TD>
+                <TD><input type="text" name="name" maxlength"10" size="20"></TD>
+            </TR>
+            <TR>
+                <TD>Lastname:</TD>
+                <TD><input type="text" name="last" maxlength="10" size="20"></TD>
+            </TR>
+            <TR>
+                <TD>Age:</TD>
+                <TD><input type="number" name="Age" min="1" max="100"></TD>
+            </TR>
+            <TR>
+                <TD>Gender:</TD>
+                <TD>
+                    <select name="gender">
+                        <option value="Female">Female</option>
+                        <option value="Male">Male</option>
+                    </select>
+                </TD>
+            </TR>
+            <TR>
+                <TD></TD>
+                <TD><BR><input type="submit" value="Save">
+                <input type="button" value="Cancel" onclick ="location.href='view.php';"></TD>
+            </TR>
+        </form>
+    </Table>
+
+    <script type="text/javascript">
+       function c(avatarUrl) {
+  document.getElementById("avatar-big").src = avatarUrl;
+  document.getElementById("hid").value = avatarUrl;
+}
+
+			</script>
+		</body>
+</html>
+          

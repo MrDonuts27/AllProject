@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> New Document </title>
+  <script>
+
+function changeText(image) {
+  var text;
+  switch(image){
+    case "ChristmasTree":
+      text = "ChristmasTree";
+      A = 1;
+      break;
+      case "Apple":
+      text = "Apple";
+      A = 2;
+      break;
+      case "Noodle":
+      text = "Noodle";
+      A = 3;
+      break;
+      case "HamBurgur":
+      text = "HamBurgur";
+      A = 4;
+      break;
+      case "bg":
+      text = "bg";
+      A = 5;
+      break;
+      default:
+        text ="";
+        A = 0;
+  }
+  document.getElementById("photo").innerHTML = text;
+  changeImage(text);
+}
+
+function changeImage(image) {
+switch(A){
+  case 1:
+  image.src = "img/ChristmasTree.png"
+  break;
+  case 2:
+  image.src = "img/Apple.png"
+  break;
+  case 3:
+  image.src = "img/Noodle.png"
+  break;
+  case 4:
+  image.src = "img/HamBurgur.png"
+  break;
+  case 5:
+  image.src = "img/bg.png"
+  break;
+  default:
+  image.src = "img/bg.png"
+}
+}
+
+
+</script>
+ </head>
+
+ <body <body onload="changeText('photo'); changeImage('img/bg.png');"> 
+ <p>&nbsp;</p>
+ <table width="80%" border="1" align="center">
+  <tr>
+    <td width="25%" align="center">
+      <p><img src="img/ChristmasTree.png" width="80" height="80" onclick="changeText('ChristmasTree');"/></p>
+      <p><img src="img/Apple.png" width="80" height="80" onclick="changeText('Apple');" /></p>
+      <p><img src="img/Noodle.png" width="80" height="80" onclick="changeText('Noodle'); "/></p>
+      <p><img src="img/HamBurgur.png" width="80" height="80" onclick="changeText('HamBurgur');"/></p>
+      <p><img src="img/bg.png" width="80" height="80" onclick="changeText('bg');"/></p>
+    
+    </td>
+
+    <td width="75%" align="center">
+	    <div align="center">
+        <p><strong>Photo</strong></p>
+        <p id="photo"></p>
+      </div>
+
+      <table width="320" border="0" align="center">
+      <tr> 
+        <td id="11" ><img src="img/bg.png" width="80" height="80" onclick="changeImage(this)"/></td>
+        <td id="12" ><img src="img/bg.png" width="80" height="80" onclick="changeImage(this)"/></td>
+        <td id="13" ><img src="img/bg.png" width="80" height="80" onclick="changeImage(this)"/></td>
+        <td id="14" ><img src="img/bg.png"  width="80" height="80" onclick="changeImage(this)"/></td>
+      </tr>
+      <tr>
+        <td id="21" ><img src="img/bg.png" width="80" height="80" onclick="changeImage(this)"/></td>
+        <td id="22" ><img src="img/bg.png" width="80" height="80" onclick="changeImage(this)"/></td>
+        <td id="23" ><img src="img/bg.png" width="80" height="80" onclick="changeImage(this)"/></td>
+        <td id="24" ><img src="img/bg.png" width="80" height="80" onclick="changeImage(this)"/></td>
+      </tr>
+      <tr>
+        <td id="31"><img src="img/bg.png" width="80" height="80" onclick="changeImage(this)"/></td>
+        <td id="32"><img src="img/bg.png" width="80" height="80" onclick="changeImage(this)"/></td>
+        <td id="33"><img src="img/bg.png" width="80" height="80" onclick="changeImage(this)"/></td>
+        <td id="34"><img src="img/bg.png" width="80" height="80" onclick="changeImage(this)" /></td>
+      </tr>
+      <tr>
+        <td id="41"><img src="img/bg.png" width="80" height="80" onclick="changeImage(this)"/></td>
+        <td id="42"><img src="img/bg.png" width="80" height="80" onclick="changeImage(this)"/></td>
+        <td id="43"><img src="img/bg.png" width="80" height="80" onclick="changeImage(this)"/></td>
+        <td id="44"><img src="img/bg.png" width="80" height="80" onclick="changeImage(this)"/></td>
+      </tr>
+      </table>
+	</td>
+  </tr>
+  </table>
+ </body>
+</html>

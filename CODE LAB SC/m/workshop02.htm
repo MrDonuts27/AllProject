@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> New Document </title>
+ 
+ </head>
+
+ <body>
+ <p>&nbsp;</p>
+ <table width="80%" border="1" align="center">
+  <tr>
+    <td width="25%" align="center">
+		<p width="25%" align="center">
+      <p><img src="img/ChristmasTree.png" width="80" height="80" alt="Christmas Tree"/></p>
+      <p><img src="img/Apple.png" width="80" height="80" alt="Apple"/></p>
+      <p><img src="img/Noodle.png" width="80" height="80" alt="Noodle"/></p>
+      <p><img src="img/HamBurgur.png" width="80" height="80" alt="Hamburger"/></p>
+      <p><img src="img/bg.png" width="80" height="80" alt=""/></p>
+  </td>
+	</td>
+
+    <td width="75%" align="center">
+	    <div align="center">
+          <p><strong>Photo</strong></p>
+          <p id="photo"></p>
+        </div>
+
+      <table width="320" border="0" align="center">
+      <tr>
+        <td id="11"><img src="img/bg.png" width="80" height="80" /></td>
+        <td id="12"><img src="img/bg.png" width="80" height="80" /></td>
+        <td id="13"><img src="img/bg.png" width="80" height="80" /></td>
+        <td id="14"><img src="img/bg.png"  width="80" height="80" /></td>
+      </tr>
+      <tr>
+        <td id="21"><img src="img/bg.png" width="80" height="80" /></td>
+        <td id="22"><img src="img/bg.png" width="80" height="80" /></td>
+        <td id="23"><img src="img/bg.png" width="80" height="80" /></td>
+        <td id="24"><img src="img/bg.png" width="80" height="80" /></td>
+      </tr>
+      <tr>
+        <td id="31"><img src="img/bg.png" width="80" height="80" /></td>
+        <td id="32"><img src="img/bg.png" width="80" height="80" /></td>
+        <td id="33"><img src="img/bg.png" width="80" height="80" /></td>
+        <td id="34"><img src="img/bg.png" width="80" height="80" /></td>
+      </tr>
+      <tr>
+        <td id="41"><img src="img/bg.png" width="80" height="80" /></td>
+        <td id="42"><img src="img/bg.png" width="80" height="80" /></td>
+        <td id="43"><img src="img/bg.png" width="80" height="80" /></td>
+        <td id="44"><img src="img/bg.png" width="80" height="80" /></td>
+      </tr>
+      </table>
+	</td>
+  </tr>
+  </table>
+  <script>
+    // ค้นหา element ต่าง ๆ ที่ใช้ในการแสดงผล
+    const menuImages = document.querySelectorAll('#menu td img');
+    const photoTitle = document.querySelector('#photo');
+    const tableImages = document.querySelectorAll('#table td img');
+    
+    // สร้าง event listener สำหรับการคลิกที่รูปภาพในเมนูด้านซ้าย
+    menuImages.forEach((image, index) => {
+      image.addEventListener('click', () => {
+        // ใช้ innerHTML เพื่อเปลี่ยนข้อความที่แสดงผลเป็นชื่อภาพนั้น
+        photoTitle.innerHTML = image.getAttribute('alt');
+        // สร้าง attribute data-index เพื่อใช้ในการตรวจสอบว่าคลิกที่รูปไหนในตาราง
+        photoTitle.setAttribute('data-index', index);
+      });
+    });
+    
+    // สร้าง event listener สำหรับการคลิกที่รูปภาพในตาราง
+    tableImages.forEach((image, index) => {
+      image.addEventListener('click', () => {
+        // ตรวจสอบว่ามีการเลือกรูปภาพในเมนูด้านซ้ายหรือไม่
+        const selectedImageIndex = photoTitle.getAttribute('data-index');
+        if (selectedImageIndex) {
+          // ใช้ index ของรูปภาพที่คลิกเพื่อกำหนดให้เป็นรูปภาพที่เลือกจากเมนู
+          const selectedImage = menuImages[selectedImageIndex];
+          // เปลี่ยน src ของรูปภาพในตารางเป็นรูปภาพที่เลือก
+          image.setAttribute('src', selectedImage.getAttribute('src'));
+        }
+      });
+    });
+    </script>
+ </body>
+</html>
