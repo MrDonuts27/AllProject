@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>test_x_to_n</title>
+<style>
+    pre {
+      font-size: 24px; 
+    }
+  </style>
+</head>
+<body>
+<script>
+   function printCustomPattern(s, characterX, characterO) {
+    let output = '<pre>';
+    for (let i = 0; i < s; i++) {
+        let line = '';
+        for (let j = 0; j < s; j++) {
+            if ((j >= Math.abs(s / 2 - i) && j <= s - Math.abs(s / 2 - i) - 1) || (j === Math.floor(s / 2) && (i === Math.floor(s / 2) || i === Math.floor(s / 2) - 1))) {
+                line += characterX;
+            } else {
+                line += characterO;
+            }
+        }
+        output += line + '<br>';
+    }
+    output += '</pre>';
+    document.body.innerHTML += output;
+}
+
+const s = 5;
+const characterX = '*';
+const characterO = ' ';
+printCustomPattern(s,characterX, characterO);
+
+</script>
+
+</body>
+</html>
